@@ -3,6 +3,7 @@
 An interactive 3D water surface simulation built with C++ and OpenGL. This project simulates realistic water waves using Gerstner wave mathematics and features an advanced post-processing pipeline with progressive bloom. The simulation includes a real-time UI powered by ImGui for tweaking parameters on the fly.
 
 <img width="800" height="470" alt="image" src="https://s4.ezgif.com/tmp/ezgif-4176c072770cf1c1.gif" />
+
 ## Features
 
 - **Gerstner Wave Simulation**: Mathematically procedural waves that you can stack, add, and tweak in real-time.
