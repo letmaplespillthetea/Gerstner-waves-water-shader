@@ -2,8 +2,8 @@
 //  main.cpp - Water Surface Simulation with ImGui Controls
 // ============================================================
 
-#include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <glad/glad.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <iostream>
@@ -38,7 +38,6 @@ static bool g_wireframe = false;
 static WaveSystem *g_wavesPtr = nullptr;
 
 // ---- Water & Lighting Appearance ----
-// Set sun to be directly in front and low on the horizon for central reflection
 static glm::vec3 g_lightDir = glm::normalize(glm::vec3(0.0f, 0.15f, -1.0f));
 static glm::vec3 g_lightColor = glm::vec3(1.0f, 0.95f, 0.85f);
 static glm::vec3 g_shallowClr = glm::vec3(0.1f, 0.5f, 0.6f);
@@ -85,7 +84,6 @@ int main() {
   Shader postFinalShader("shaders/post.vert", "shaders/post_final.frag");
 
   WaterMesh waterMesh(200.0f, 200);
-  // Doubled the sun size to 30.0 as requested
   SunMesh sunMesh(30.0f, 64);
   PostProcess postProcessor(WINDOW_WIDTH, WINDOW_HEIGHT);
 
@@ -150,7 +148,8 @@ int main() {
     sunShader.setMat4("u_projection", projection);
     sunShader.setVec3("u_sunColor", g_lightColor * 3.5f);
 
-    if (g_wireframe) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    if (g_wireframe)
+      glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     sunMesh.draw();
 
     // ---- Draw water ----
@@ -168,7 +167,8 @@ int main() {
 
     waveSystem.uploadToShader(waterShader);
     waterMesh.draw();
-    if (g_wireframe) glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    if (g_wireframe)
+      glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
     // ---- 2. Render Bloom (Progressive Downsample/Upsample) ----
     postProcessor.renderBloom(bloomDownsampleShader, bloomUpsampleShader,
