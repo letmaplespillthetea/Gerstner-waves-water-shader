@@ -1,0 +1,13 @@
+{
+	"InstallScripts" : 
+	[
+		"F:/VHT/build/cmake_install.cmake",
+		"F:/VHT/build/_deps/glfw-build/cmake_install.cmake",
+		"F:/VHT/build/_deps/glfw-build/src/cmake_install.cmake",
+		"F:/VHT/build/_deps/glfw-build/examples/cmake_install.cmake",
+		"F:/VHT/build/_deps/glfw-build/tests/cmake_install.cmake",
+		"F:/VHT/build/_deps/glm-build/cmake_install.cmake",
+		"F:/VHT/build/_deps/glm-build/glm/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
